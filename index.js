@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 })
 app.use('/user', require('./routes/userRouter'))
 app.use('/api', require('./routes/albumRouter'))
+app.use('/api', require('./routes/imageUploadRouter'))
 
 //connect to mongodb
 const URI = process.env.DB_URL
