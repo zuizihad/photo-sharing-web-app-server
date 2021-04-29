@@ -2,6 +2,7 @@ const Users = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const userController = {
     register: async (req, res) => {
+
         try {
             const { name, email, password } = req.body;
             const user = await Users.findOne({ email })
