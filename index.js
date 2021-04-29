@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
     res.send('working')
 })
 app.use('/user', require('./routes/userRouter'))
-app.use('/user', require('./routes/albumRouter'))
+app.use('/api', require('./routes/albumRouter'))
 
 //connect to mongodb
 const URI = process.env.DB_URL
