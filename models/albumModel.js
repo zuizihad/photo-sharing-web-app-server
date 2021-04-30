@@ -9,6 +9,10 @@ const albumSchema = new mongoose.Schema({
     albumPrivacy: {
         type: String,
         required: true
+    },
+    email: {
+        type: String,
+        required: true,
     }
 
 }, {

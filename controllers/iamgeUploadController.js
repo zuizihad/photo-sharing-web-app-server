@@ -10,6 +10,11 @@ const imageUploadCOntroller = {
         } catch (error) {
             console.log(error);
         }
+    },
+    getImage: async (req, res) => {
+        const name = req.params.name;
+        const albumImage = await imageUpload.find({ albumName: name })
+        res.json(albumImage)
     }
 }
 
