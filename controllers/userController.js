@@ -27,11 +27,17 @@ const userController = {
         try {
             const { email, password } = req.body;
             const user = await Users.findOne({ email })
-            if (!user) return res.status(400).json({ msg: 'User does not exists' })
+            if (!user) {
+                return res.status(400).json({ msg: 'User does not exists' })
+            } else {
+                const isUserFound = await bcrypt.compare(password, user.password)
+                if (!isUserFound) {
+                    return res.status(400).json({ msg: 'Incorrect password' })
+                } else {
+                    return res.json({ user, msg: "login success" })
+                }
 
-            const isUserFound = await bcrypt.compare(password, user.password)
-            if (!isUserFound) return res.status(400).json({ msg: 'Incorrect password' })
-            res.json('login success')
+            }
         } catch (err) {
             return res.status(500).json({ msg: err.message })
         }

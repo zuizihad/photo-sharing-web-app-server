@@ -1,6 +1,6 @@
 const imageUpload = require('../models/imageUploadModel');
 
-const imageUploadCOntroller = {
+const imageUploadController = {
     uploadImage: async (req, res) => {
         try {
             const { imageURL, albumName } = req.body;
@@ -18,4 +18,4 @@ const imageUploadCOntroller = {
     }
 }
 
-module.exports = imageUploadCOntroller;
+module.exports = imageUploadController;
