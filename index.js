@@ -17,8 +17,8 @@ app.use('/api', require('./routes/albumRouter'))
 app.use('/api', require('./routes/imageUploadRouter'))
 
 //connect to mongodb
-const URI = process.env.DB_URL
-
+// const URI = process.env.DB_URL
+const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@node-shop.ukiuc.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 mongoose.connect(URI, {
     useCreateIndex: true,
     useFindAndModify: true,
